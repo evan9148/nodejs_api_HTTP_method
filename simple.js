@@ -48,9 +48,9 @@ app.get("/data", (request,response) => {
     knex()
         Select("*")
         From("data")
-        .then(() => {
+        .then((data) => {
             console.log("your data is has being coming...  ")
-            response.send("your data is has being coming!   ")
+            response.send(data)
         })
         .catch((err) => {
             console.log("your data didn't come yet... ")
@@ -63,9 +63,9 @@ app.get("/data/:id", (request,response) => {
         select("*")
         From("data")
         Where("id",request.params.id)
-        .then(() => {
+        .then((data) => {
             console.log("your have got your id detail....  ")
-            response.send("you have got your id detail!   ")
+            response.send(data)
         })
         .catch((er) => {
             console.log("sorry!, your id details not yet come ! ... ")
